@@ -3,21 +3,127 @@
 <head>
 <meta charset="utf-8">
 <title>Hunde banner</title>
+<link href="https://fonts.googleapis.com/css?family=Nixie+One|Poppins" rel="stylesheet">
 <style>
 	.banner {
 		width: 336px;
 		height: 280px;
-		background-image: url("adorable-animal-animal-photography-1629781.jpg");
 		background-repeat: no-repeat;
 		background-size: 456px 303px;
 		background-position: center;
-	}	
+		animation-name: baggrund;
+		animation-duration: 15s;
+		animation-fill-mode: backwards;
+	}
+	
+	h1, h3, h4 {
+		text-transform: uppercase;
+		font-family: 'Nixie One', cursive;
+	}
+	h2 {
+		text-transform: uppercase;
+		font-family: 'Poppins', sans-serif;
+		font-size: 35px;
+		line-height: 1.4;
+		font-weight: 600;
+		color: #FFFFFF;
+		padding: 110px 0;
+	}
+	
+	.bannerText {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.bannerText h1 {
+		font-size: 30pt;
+		font-weight: 100;
+		position: absolute;
+		top: 188px;
+		animation-name: bannerTextAni1;
+		animation-duration: 10s;
+		opacity: 0;
+	}
+	
+	.bannerText h3 {
+		position: absolute;
+		font-size: 11pt;
+		letter-spacing: 3;
+		top: 241px;
+		left: 25px;
+		animation-name: bannerTextAni2;
+		animation-duration: 10s;
+		opacity: 0;
+		animation-delay: 0.5s;
+	}
+	
+	.bannerText h4 {
+		position: absolute;
+		font-size: 9pt;
+		letter-spacing: 3;
+		top: 258px;
+		left: 60px;
+		animation-name: bannerTextAni3;
+		animation-duration: 10s;
+		opacity: 0;
+		animation-delay: 1s;
+	}
+	
+	.kobBillet {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		vertical-align: middle;
+		animation-name: billet;
+		animation-duration: 15s;
+		animation-fill-mode: forwards;
+	}
+	
+	@keyframes baggrund {
+		0% {background-image: url("adorable-animal-animal-photography-1629781.jpg");}
+		40% {background-image: url("adorable-animal-animal-photography-1629781.jpg");}
+		100% {background-color: #db032e}
+	}
+	
+	@keyframes bannerTextAni1 {
+		10% {opacity: 1;}
+	}
+	@keyframes bannerTextAni2 {
+		20% {opacity: 1;}
+	}
+	@keyframes bannerTextAni3 {
+		30% {opacity: 1;}
+	}
+	
+	@keyframes billet {
+		0% {opacity: 0}
+		45% {opacity: 0}
+		100% {opacity: 1}
+	}
 </style>
 </head>
 
 <body>
 	<div class="banner">
-		<h2></h2>
+		<div class="kobBillet"><h2 >Køb billetter her</h2></div>
+		<div class="bannerText"><h1>Hundeliv</h1><h3>Kæmpe hundemesse</h3><h4>24.- 27. Juni</h4></div>
+		
 	</div>
+	<script>
+		//Function til at klikke på banneret
+		let element = document.querySelector(".banner");
+		element.addEventListener("click", goToSomePage);
+		
+		function goToSomePage(){
+			window.open("http://saraskov.dk", '_blank');
+		}
+		
+		//Function til at reloade siden efter 10 sekunder
+		document.addEventListener('load', setTimeout(reloadBanner, 15000));
+		
+		function reloadBanner() {
+			location.reload();
+		}
+	</script>
 </body>
 </html>
